@@ -44,9 +44,7 @@ router.route('/value')
     console.log("[Request] host Param: ", req.query.host);
     console.log("[Request] path Param: ", req.query.path);
     console.log("[Request] query Param: ", req.query.query_params);
-  
-    console.log(decodeURI(req.query.url));
-  
+    
     var apiInfo = {
       url: decodeURI(req.query.url),
       host: req.query.host,
@@ -58,7 +56,6 @@ router.route('/value')
     
     apiInterface.get(function(d){      
       var jsonResponse = JSON.parse(d.toString('utf8'));  
-      console.log(jsonResponse);
       res.json(jsonResponse[req.query.key]);
     });
 		
